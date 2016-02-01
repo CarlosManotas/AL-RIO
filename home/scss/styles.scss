@@ -2802,17 +2802,37 @@ h5 {
 h6 {
   font-size: 0.8em; }
 
+
+
+
+
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS
+*
+*
+*//////////////////////////////////////////////////////////
+/*////////////////////////////////////////////////////////
+*
+*
+*  HEADER 
+*
+*
+*//////////////////////////////////////////////////////////
+
 .cm-background{
-  height: 100vh;
+  height: 100vh ;
   width: 100%;
   background-image: url(../images-slider/wide1.jpg) !important;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  margin: 0 ;
+  padding: 0 ;
+  line-height: 0 !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: 50% 50% ;
+  background-attachment: fixed !important;
 }
 .cm-background h2{
   color:white !important;
@@ -2821,6 +2841,19 @@ h6 {
 .cm-height{
   height: 100%;
 }
+.cm-header{
+  height: 95px;
+  display: none;
+}
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESFERAS CON PLUS
+*
+*
+*//////////////////////////////////////////////////////////
+
 .circle{
   width: 35px;
   height: 35px;
@@ -3049,21 +3082,28 @@ h6 {
     margin-top: 0;
   }
 }
+
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  VIDEO TAPA PLAY 
+*
+*
+*//////////////////////////////////////////////////////////
 .tapa{
-  width:100%;
-  height: 100%;
+  width:100vw;
+  height: 500px;
   position: absolute;
   background-image: url(../images/bg1-videoelproyecto.jpg);
   background-repeat: no-repeat;
-  background-color:  rgba(255,255,255,.95);
-  -webkit-background-size:cover;
   background-size:cover;
   background-position: center center;
-  top:-18em;
+  top:0;
   left:0;
   z-index: 99;
   cursor: pointer;
-  padding: 0;        
+  padding: 0;       
 }
 .tapa:after,
 .tapa:before{
@@ -3093,24 +3133,73 @@ h6 {
   border-radius: 50%;
   border:5px solid rgba(255,255,255,.5);
 }
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS AL H1 O H2.H1
+*
+*
+*//////////////////////////////////////////////////////////
+
 .h1{
   margin-top: -40px;
-  font-size: 1.6em;
+  font-size: 3em;
 }
 .h1 span{
-  font-size: .8em;
+  font-size: .5em;
   padding-bottom: .3em;
   border-bottom: 1px solid #5f5e5e;
+  margin-top: 1em;
   text-transform: uppercase;
 }
 h2.h1 span{
   display: block;
   margin-bottom: 1.5em;
 }
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS PARA ARQUITECTOS
+*
+*
+*//////////////////////////////////////////////////////////
+#arquitectos{
+  padding-bottom: 0;
+}
+.cm-arquitectos{
+  background-color: #f1f1f1 !important;
+  width: 100%;
+  padding: 2.3em 0;
+
+  .especial{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    figure{
+      padding: 1em;
+      align-self:center;
+    }
+  }
+}
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS PARA EL VIDEO
+*
+*
+*//////////////////////////////////////////////////////////
+ 
 .m-video{
   max-height: 85vh;
   overflow:hidden;
   padding-top: .5em;
+  padding-bottom: 0;
+  iframe{
+    top:-18%;
+  }
   .h1{
     margin-top: .5em;
     span{
@@ -3118,14 +3207,12 @@ h2.h1 span{
     }
   }
 }
-.m-video iframe{
-  top:-18%;
-}
 .control-video{
   display: flex;
   flex-direction:column;
   justify-content:center;
   align-items:flex-start;
+  margin-bottom: 1.8em;
 }
 .control-video span{
   display: inline-flex;
@@ -3151,6 +3238,14 @@ h2.h1 span{
 .ctrlVideo p{
   line-height: 1.8em;
 }
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS DE LOS SECCION CLASES CM
+*
+*
+*//////////////////////////////////////////////////////////
 .cm{
   height: 70vh !important;
   width: 100% !important;
@@ -3159,8 +3254,18 @@ h2.h1 span{
   -webkit-background-size: cover !important;
     background-size: cover !important;  
 }
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS CM INFO
+*
+*
+*//////////////////////////////////////////////////////////
 .cm-info{
   margin-top: 2.5em;
+  p{
+    margin-bottom: 2em;
+  }
   figure{
     margin: 0;
     margin-top: auto;
@@ -3182,27 +3287,126 @@ h2.h1 span{
     }
   }
 }
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS CM MASTERPLAN
+*
+*
+*//////////////////////////////////////////////////////////
 .cm.masterplan{
   background-image: url(../images/masterplan.jpg);
   background-position: top center !important;
   position: relative;
   overflow: hidden;
 }
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS CM GALERIA
+*
+*
+*//////////////////////////////////////////////////////////
 .cm.galeria{
   height: auto !important;
   padding-bottom: 0 ;
+  padding-top: 1.5em;
 }
+.cm-portfolio{
+  padding-top: 3em;
+  padding-bottom: 2em;
+  figure.cm-small{
+    margin: 0;
+    position:relative;
+    overflow: hidden;
+    cursor :pointer;
+  }
+  figure.cm-small:after{
+    position:absolute;
+    content: "";
+    width: 150%;
+    height: 100%;
+    background: rgba(255,255,255,.6);
+    top:100%;
+    left:0;
+  }
+  figure.cm-small:hover:after{
+    top:0;
+    transition: all .5s;
+  }
+}
+.portfolio-modal{
+  position: fixed;
+  display:none;
+  justify-content: center;
+  align-items:center;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,.95);
+  z-index: 99999999;
+  figure.cm-portfolio-modal{
+    max-width: 75%;
+  }
+  span{
+    position: absolute;
+    font-size: 2em;
+    color:#000;
+    cursor: pointer;
+  }
+  span.icon-cerrar{
+    top:1.1em;
+    right:1em;
+  }
+  span.icon-derecha,span.icon-izquierda{
+    top:50%;
+  }
+  span.icon-izquierda{
+    left:1em;
+  }
+  span.icon-derecha{
+    right:1em;
+  }
+}
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS CM UBICACION
+*
+*
+*//////////////////////////////////////////////////////////
 .cm.ubicacion{
-  background-image: url(../images/subheader-1.jpg);
+  background-image: url(../images/bg-mobile-ubicacion.jpg) !important;
+  background-position: center center;
   height: 60vh;
-  overflow: hidden;
+  overflow: hidden !important;
+  margin-bottom: 3.5em;
+  position: relative;
 }
-.cm.ubicacion .circle.circle-masterplan[data-position="1"]{
-  right:1.3em;
+.cm.ubicacion .circle-ubicacion{
+  right:0;
+  left:0;
+  margin: 0 auto;
   top:7em;
-  transition:visibility 1s;
+  visibility: visible !important;
   background: #48941f;
   color:white;
+  &:before{
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: rgba(#48941f,.4);
+    border-radius: 50%;
+    top:0;
+    left:-1.1em;
+    bottom:0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+  }
 }
 .cm.ubicacion .texto-p{
   background: rgba(0,0,0,.7);
@@ -3213,18 +3417,20 @@ h2.h1 span{
   color:white;
   margin-top: 0;
 }
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS CM ACCESO
+*
+*
+*//////////////////////////////////////////////////////////
 .cm.acceso{
   background-image: url(../images/subheader-2.jpg);
   background-repeat: repeat;
   background-position: center center;
   height: 60vh;
   position: relative;
-}
-#ubicacion{
-  /*padding: 1em !important;*/
-}
-#ubicacion .h1 span{
-  margin-bottom: 0 !important;
 }
 .cm.acceso img{
   position: absolute;
@@ -3259,6 +3465,13 @@ h2.h1 span{
   left:48em;
   top:18em;
 }
+.accesos2{
+  padding-top: .5em;
+  padding-bottom: 0;
+  hr{
+    border: 1px solid #eee;
+  }
+}
 @media all and (min-width: 1900px){
   .cm.acceso img[alt="tren"]{
     top:2 * 6.3em;
@@ -3285,6 +3498,28 @@ h2.h1 span{
     top:2 * 18em;
   }
 }
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS CM UBICACION
+*
+*
+*//////////////////////////////////////////////////////////
+#ubicacion{
+  padding: 5em 0 2.5em 0;
+}
+#ubicacion .h1 span{
+  margin-bottom: 0 !important;
+}
+
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS CM MODAL
+*
+*
+*//////////////////////////////////////////////////////////
 .cm-modal{
   position: fixed;
   width: 100vw;
@@ -3332,21 +3567,37 @@ h2.h1 span{
     overflow: hidden;
   }
 }
-#ubicacion{
-  padding: 5em 0 1.5em 0;
-}
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS GOOGLE
+*
+*
+*//////////////////////////////////////////////////////////
 .google{
-  margin: 1.8em auto 5em auto;
+  margin-top:auto;
+
 }
 .google .btn-cm{
   color:white;
-  font-size: 1.2em
+  font-size: 1.2em;
+  position: relative;
+  bottom: 0;
+  margin-top: 60%;
 }
 .google .btn-cm:hover{
   color:white;
   background: green;
   font-size: 1.2em
 }
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS  MOSTRAT TEXTO
+*
+*
+*//////////////////////////////////////////////////////////
 .showText{
   background: rgba(255,255,255,.7);
   padding:1em 1.5em 2em 1.5em;
@@ -3359,6 +3610,13 @@ h2.h1 span{
   text-transform: uppercase;
   margin: .5em 0;
 }
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS BOTONES Y NAVEGADORES
+*
+*
+*//////////////////////////////////////////////////////////
 .cmBtn{
   position: absolute;
   right: .5em;
@@ -3373,7 +3631,7 @@ h2.h1 span{
 .cm-nav{
   position: relative;
   width: 100%;
-  background: #d9dbd8;
+  background: rgba(#e5e6e3,.7);
   display: flex;
   justify-content:center;
   align-items:center;
@@ -3411,6 +3669,8 @@ h2.h1 span{
       a{
         color:#626262;
         text-decoration: none;
+        font-family: "misolight";
+        font-size: 1.2em;
         &:hover{
           color:#aaa;
         }
@@ -3435,6 +3695,35 @@ h2.h1 span{
     }
   }
 }
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS CM AMENITIES
+*
+*
+*//////////////////////////////////////////////////////////
+.amenities{
+  padding: 0;
+  margin-bottom: 1.5em;
+}
+.cm.cm-amenities{
+  background-image: url(../images/bg-amenities.jpg);
+  margin-bottom: 3em;
+}
+.cm-amenities.info{
+  width: 100;
+  padding: 0;
+  margin-bottom: 3em;
+}
+
+/*////////////////////////////////////////////////////////
+*
+*
+*  ESTILOS PERSONALIZADOS MEDIAS QUERYS
+*
+*
+*//////////////////////////////////////////////////////////
 @media all and (min-width: 480px) {
 
 }
@@ -3445,7 +3734,7 @@ h2.h1 span{
   img[alt='ubicacionSvg']{
     position: absolute;
     left:30em;
-    top:6.5em;
+    top:8.5em;
   }
   .h1{
     margin-top: -40px;
@@ -3454,28 +3743,21 @@ h2.h1 span{
   .h1 span{
     font-size: .4em;
   }
-  .cm.ubicacion .circle.circle-masterplan[data-position="1"]{
-    right:19em;
-    top:8.5em;
+  .cm.ubicacion{
+    background-image: url(../images/subheader-1.jpg) !important;
+  }
+  .cm.ubicacion .circle-ubicacion{
+    left:auto;
+    right:19em !important;
+    top:8.5em !important;
     transition:visibility 1s;
-    &:before{
-      content: '';
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      background: rgba(#48941f,.4);
-      border-radius: 50%;
-      top:0;
-      left:-1.1em;
-      bottom:0;
-      right: 0;
-      margin: auto;
-      z-index: -1;
-    }
   }
   .cm.ubicacion .texto-p{
     padding: 0;
     padding-left: 1em;
+  }
+  .google .btn-cm{
+    margin-top: 25%;
   }
   #mainmenu{
   li.active{
@@ -3486,13 +3768,13 @@ h2.h1 span{
     &:after{
       position: absolute;
       content: "";
-      top:39px;
+      top:36px;
       left:0;
       right: 0;
       margin: 0 auto;
       width: 0;
       height: 0;
-      border-bottom: 15px solid #d9dbd8;
+      border-bottom: 15px solid rgba(#e5e6e3,.7);
       border-top: 15px solid transparent;
       border-left: 15px solid transparent;
       border-right: 15px solid transparent;
@@ -3502,7 +3784,8 @@ h2.h1 span{
 }
 }
 @media all and (min-width: 1900px) {
-  .cm.ubicacion .circle.circle-masterplan[data-position="1"]{
+  .cm.ubicacion .circle-ubicacion{
+    left:auto;
     right:23em;
     top:17em;
     transition:visibility 1s;
@@ -3513,4 +3796,10 @@ h2.h1 span{
     top:8em;
     height:200px; 
   }
+}
+.no-margin{
+  margin:0; 
+}
+.rio-coment{
+  padding-top: 2em;
 }

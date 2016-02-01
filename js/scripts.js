@@ -6,20 +6,27 @@ $(function(){
 	var $menuhijo1 		= $('#palo1');
 	var $menuhijo2 		= $('#palo2');
 	var $menuhijo3 		= $('#palo3');
+	var pantalla 		= $(window).width();
 	var id;
 	var total = AleatorioVideos(1,4);
 
 	switch(total){
 		case 1:
 			id = 'tN5lnZIUmAU';
-			$('img[alt="AlRio"]').removeAttr('src');
-			$('img[alt="AlRio"]').attr('src', 'img/logo.svg');
+			if(pantalla >= 1024){
+				$('img[alt="AlRio"]').removeAttr('src');
+				$('img[alt="AlRio"]').attr('src', 'img/logo-b.png');
+			}
+				
 			console.log(id);
 			break;
 		case 2:
 			id = '2fe8ITYVR6U';
-			$('img[alt="AlRio"]').removeAttr('src');
-			$('img[alt="AlRio"]').attr('src', 'img/logo.svg');
+			if(pantalla >= 1024){
+				$('img[alt="AlRio"]').removeAttr('src');
+				$('img[alt="AlRio"]').attr('src', 'img/logo-b.png');
+			}
+				
 			console.log(id);
 			break;
 		case 3:

@@ -3,8 +3,10 @@ $(function(){
 	/*
 		variables
 	*/
+	var objFixed         = $(".cm-header");
+	var $abrirModalImg   = $("#cm-portfolio");
 	var $abrirModal      = $("#masterplanBtn .circle-masterplan");
-	var $btnModal 		 = $("#cm-modal button");
+	var $cerrarModal 	 = $("#cm-modal button");
 	var $headerCm   	 = $('#cm-header');
 	var $topHeader  	 = $headerCm.offset().top;
 	var $masterplan  	 = $("#masterplan").offset().top;
@@ -20,17 +22,27 @@ $(function(){
 	var $urlVideo2 		 = "https://www.youtube.com/embed/jqglZXXeDCo?rel=0&controls=0&showinfo=0&modestbranding=0";
 	var $urlVideo1 		 = "https://www.youtube.com/embed/DFgHj1txNSo?rel=0&controls=0&showinfo=0&modestbranding=0";
 	var $imgBtn 		 = $('#acceso');
+	var $backParallax    = $(".cm-background");
 	var voyPorAqui;
 	var cmBtn;
+	var $portfolioModal;
 
 	/*
-		variables
+		fin variables
 	*/
 
-	
-	function dameAttr (objeto) {
-		return $(objeto).attr("data-play-video");
+	function dameAttr (objeto , atributo) {
+		return $(objeto).attr(atributo);
 	}
+
+
+	/*
+		modal
+	*/
+
+
+
+
 	$abrirModal.on("click",function(){
 		voyPorAqui = $(window).scrollTop();
 		$(this).next().css("display","block");
@@ -40,11 +52,9 @@ $(function(){
 				height :'100vh'
 			});
 		}
-			
-
 	});
 
-	$btnModal.on("click",function(){
+	$cerrarModal.on("click",function(){
 		if($pantalla < 1024){
 			$('body , html').animate({scrollTop:(voyPorAqui)},1);
 			$(document).find('body').css({
@@ -55,12 +65,27 @@ $(function(){
 		$(this).parent().parent().parent().css("display","none");
 			
 	});
+
+
+	/*
+		fin modal
+	*/
+
 	$(window).on('scroll',function(){
 		var $topi = $(window).scrollTop();
+		var estePrimero = $backParallax.css("background-position");
+		$backParallax.css({
+				"background-position": "50% "+ (-50 + $topi)* 0.2 +("%")
+			});
+		if($topi === 0){
+			$backParallax.css("background-position",estePrimero);
+		}
 		if($topi > $topHeader){
 			$headerCm.css({'position':'fixed'});
+			objFixed.css("display","block");
 		}else{
 			$headerCm.css({'position':'relative'});
+			objFixed.css("display","none");
 		}
 		if($topi >= ($masterplan - 300)){
 			$circleMaster.css("visibility","visible");
@@ -69,6 +94,13 @@ $(function(){
 	$btnScroll.on('click',function(){
 		 $('body , html').animate({scrollTop:$topHeader},1000,'easeInOutExpo');
 	});
+
+
+	/*
+		video
+	*/
+
+
 	$videoPlay.on("click",function(){
 		var youtube = $(this).siblings("iframe");
 		var url = $(youtube).attr("src");
@@ -76,17 +108,17 @@ $(function(){
 		$(youtube).attr("src" , url2);
 		setTimeout(function(){
 		  $videoPlay.css("display","none");
-		}, 2000);
+		}, 2500);
 	});
 	$ctrlVideo.on("click",function() {
 		$(this).parent().parent().find("span").removeClass("active");
 		$(this).addClass("active");
-		var active = dameAttr(this);
+		var active = dameAttr(this ,"data-play-video" );
 		var $video = $("#video-iframe");
 		switch(active){
 			case "1":
 				$videoPlay.css({
-					"background-image": "url(../images/bgvideo3-elproyecto.jpg)",
+					"background-image": "url(images/bgvideo3-elproyecto.jpg)",
 					display: "block"
 				});
 				$video.removeAttr("src");
@@ -95,7 +127,7 @@ $(function(){
 				break;
 			case "2":
 				$videoPlay.css({
-					"background-image": "url(../images/bgvideo2-elproyecto.jpg)",
+					"background-image": "url(images/bgvideo2-elproyecto.jpg)",
 					display: "block"
 				});
 				$video.removeAttr("src");
@@ -104,7 +136,7 @@ $(function(){
 				break;
 			case "3":
 				$videoPlay.css({
-					"background-image": "url(../images/bg1-videoelproyecto.jpg)",
+					"background-image": "url(images/bg1-videoelproyecto.jpg)",
 					display: "block"
 				});
 				
@@ -116,7 +148,11 @@ $(function(){
 				console.log($video);
 		}
 
-	})
+	});
+
+	/*
+		fin video
+	*/
 
 	if($pantalla < 480){
 		$titulo.css("font-size","3.5em");
@@ -139,5 +175,40 @@ $(function(){
 			$(this).parent().css('display','none');
 		});
 	});
+
+
+	/*
+		galeria modal
+	*/
+
+	$abrirModalImg.on("click", "figure",function(){
+		var t = $(this);
+		var tHijo = t.children("img");
+		var attrImg = dameAttr(tHijo,"src");
+		var nuevoAttr = incluirNewRuta(attrImg);
+		$portfolioModal = $(document).find("#portfolio-modal");
+		$portfolioModal.children("figure").children("img").attr("src",nuevoAttr+"g.jpg");
+		$portfolioModal.css({
+			display: "flex",
+			display: "-webkit-flex"
+		});
+
+		btnCerrarListo = encontrarBtn("#iconCerrar");
+		console.log(btnCerrarListo);
+		btnCerrarListo.on("click",function(){
+			$(this).parent().css("display","none");
+		})
+	});
+
+	function encontrarBtn (btn){
+		return $(document).find(btn);
+	}
+	function incluirNewRuta (string){
+		return string.substr(0 , string.length-4);
+		
+	}
+	/*
+		galeria modal
+	*/
 	
 });

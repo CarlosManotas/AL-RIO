@@ -197,7 +197,6 @@ overflow:hidden;
 	header.smaller {
 	height: 70px;
 	background:#fff;
-	border-bottom:solid 1px #eee;
 	}
 	
 	.logo-smaller h1#logo {
@@ -3794,7 +3793,7 @@ float:none;
 	margin:0;
 	padding:0;
 	margin-top:0;
-	background: #999;
+	background: #ededed;
 	height:auto !important;
 	padding:15px 0 15px 0;
 
@@ -3924,7 +3923,7 @@ float:none;
 	border-bottom:none;
 	}
 	#mainmenu li a{
-	color:#eceff3;
+	color:#3d3d3d;
 	}
 	
 	#mainmenu  li li a{

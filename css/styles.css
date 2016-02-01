@@ -1507,6 +1507,12 @@ class="no-padding" a la caja le da padding cero solo a ella
 }
 
 @font-face {
+  font-family: "miso-light";
+  src: url("../fonts/miso-light.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
   font-family: "ed-grid";
   src: url("../fonts/ed-grid.eot");
   src: url("../fonts/ed-grid.eot?#iefix") format("embedded-opentype"), url("../fonts/ed-grid.woff") format("woff"), url("../fonts/ed-grid.ttf") format("truetype"), url("../fonts/ed-grid.svg#ed-grid") format("svg");
@@ -3466,7 +3472,12 @@ h1 {
     max-height: 300px;
   }
 }
-
+body{
+  background: url(../img/mobile-home.jpg)no-repeat;
+  background-position: bottom center; 
+  -webkit-background-size: cover;
+     background-size: cover;   
+}
 #btnMenu {
   z-index: 999999999999999999999999;
   margin: 0;
@@ -3550,8 +3561,6 @@ video {
 }
 
 .header {
-  background: rgba(255, 255, 255, 0.7);
-  min-height: 50px;
 }
 
 #premier {
@@ -3594,9 +3603,16 @@ video {
 
 .navegador ul a {
   color: white;
+  font-family: "miso-light"!important;
+  text-transform: uppercase;
+  font-size: 1.2em;
 }
 
 @media screen and (min-width: 768px) {
+  .header {
+    background: rgba(255, 255, 255, 1);
+    min-height: 50px;
+  }
   .navegador ul {
     right: 0;
     position: relative;
@@ -3615,7 +3631,7 @@ video {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
             justify-content: space-around;
-    margin-top: -100vh;
+    margin-top: .5em;
     transition: margin .6s;
   }
   .navegador ul a {
